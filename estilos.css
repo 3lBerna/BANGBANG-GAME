@@ -1,0 +1,363 @@
+/* ============ ESTILOS GENERALES ============ */
+* {
+	margin: 0px;
+	padding: 0px;
+	font-family: "Sancreek", serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+body, html {
+	overflow: hidden;
+}
+
+/* ============ PANTALLA DE INICIO ============ */
+.bg-inicio {
+	background: url(img/main.png);
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+/* BOTÓN PARA INICIAR EL JUEGO */
+.btn-inicio {
+	width: 200px;
+	height: 60px;
+	border-radius: 8px;
+	border: none;
+	font-size: 40px;
+	background: #f1ac39;
+	color: #864916;
+	position: absolute;
+	bottom: 30px;
+	left: calc(50% - 100px);
+	text-shadow: 0px -1px 0px rgba(0, 0, 0, .7);
+	box-shadow: 0px 10px 0px 4px #864916, 0px 10px 50px 50px rgba(0, 0, 0, .5);
+}
+
+.btn-inicio:active {
+	box-shadow: 0px 4px 0px 4px #864916, 0px 10px 50px 50px rgba(0, 0, 0, .5);
+	bottom: 24px;
+}
+
+/* ============ FONDOS SECUNDARIOS ============ */
+.bg-personaje {
+	background: url(img/bg_personaje.png);
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+}
+
+.bg-transicion {
+	background: rgba(0, 0, 0, 0);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	transition: .6s all;
+}
+
+/* FONDO NEGRO PARA TRANSICIÓN */
+.bg-transicion-show {
+	background: rgba(0, 0, 0, 1);
+	z-index: 9999999;
+	transition: .6s all;
+}
+
+/* ============ SELECTOR DE PERSONAJES ============ */
+.titulo {
+	width: 100%;
+	height: 80px;
+	line-height: 80px;
+	text-align: center;
+	color: #f1ac39;
+	font-size: 1.3em;
+	text-shadow: 0px 3px 0px rgba(0, 0, 0, .5);
+}
+
+.personajes {
+	width: 100%;
+	height: calc(100% - 160px); /* 100% MENOS TÍTULO Y BARRA */
+	float: left;
+}
+
+/* BOTÓN ANTERIOR DE SELECCIÓN */
+.anterior, .siguiente {
+	width: 100px;
+	height: 100%;
+	float: left;
+	background: none;
+	outline: none;
+	border: none;
+}
+
+.anterior {
+	margin-left: 10%;
+}
+
+.anterior img,
+.siguiente img {
+	width: 100%;
+}
+
+/* PERSONAJE MOSTRADO */
+.personaje {
+	width: calc(80% - 200px);
+	height: 100%;
+	float: left;
+	text-align: center;
+	animation: p1 2s ease-in-out infinite;
+}
+
+.personaje img {
+	height: 100%;
+}
+
+/* BARRA DE NOMBRE Y BOTÓN SIGUIENTE */
+.barra {
+	width: 100%;
+	height: 80px;
+	float: left;
+}
+
+.txt-nombre {
+	width: 300px;
+	height: 60px;
+	border-radius: 8px;
+	border: none;
+	font-size: 25px;
+	background: rgba(0, 0, 0, .3);
+	color: white;
+	padding-left: 10px;
+	text-align: center;
+	outline: none;
+	box-sizing: border-box;
+	float: left;
+	margin-left: calc(50% - 235px);
+}
+
+.btn-siguiente {
+	width: 150px;
+	height: 60px;
+	border-radius: 8px;
+	border: none;
+	font-size: 25px;
+	background: #f1ac39;
+	color: #864916;
+	margin-left: 20px;
+	box-shadow: 0px 2px 0px 2px #864916;
+	text-shadow: 0px -1px 0px rgba(0, 0, 0, .7);
+	box-sizing: border-box;
+	float: left;
+	position: relative;
+}
+
+/* ============ ANIMACIONES DE PERSONAJES ============ */
+@keyframes p1 {
+	0% { transform: scaleY(1); }
+	50% { transform: scaleY(1.05) translateY(-5px); }
+	100% { transform: scaleY(1); }
+}
+
+@keyframes p2 {
+	0% { transform: scaleY(1) rotateY(180deg); }
+	50% { transform: scaleY(1.05) rotateY(180deg) translateY(-5px); }
+	100% { transform: scaleY(1) rotateY(180deg); }
+}
+
+/* ============ VISTA DEL JUEGO ============ */
+.bg-juego {
+	background: url(img/bg3.png);
+	background-size: 100% 100%;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	display: block;
+}
+
+/* ÁREAS IZQUIERDA Y DERECHA */
+.left, .right {
+	width: 50%;
+	height: 100%;
+	float: left;
+	display: block;
+}
+
+/* PERSONAJE 1 */
+.p1 {
+	position: absolute;
+	left: 30px;
+	bottom: 30px;
+	width: 300px;
+	height: 300px;
+	background: url(img/p1.png);
+	background-size: cover;
+	animation: p1 2s ease-in-out infinite;
+	transition: .5s all;
+	z-index: 9999;
+}
+
+.p1 h2 {
+	text-align: left;
+	color: #FFF;
+	text-shadow: 1px 1px 2px #000, -1px 1px 2px #000, -1px -1px 0 #000, 1px -1px 0 #000;
+}
+
+/* PERSONAJE 2 */
+.p2 {
+	position: absolute;
+	right: 30px;
+	bottom: 30px;
+	width: 300px;
+	height: 300px;
+	background: url(img/p1.png);
+	background-size: cover;
+	animation: p2 2s ease-in-out infinite;
+	transition: .5s all;
+	z-index: 9999;
+}
+
+.p2 h2 {
+	text-align: right;
+	color: #FFF;
+	text-shadow: 1px 1px 2px #000, -1px 1px 2px #000, -1px -1px 0 #000, 1px -1px 0 #000;
+	transform: rotateY(180deg);
+}
+
+/* BARRA DE VIDAS */
+.vidas1, .vidas2 {
+	width: 100%;
+	height: 30px;
+	float: left;
+	position: relative;
+}
+
+.vidas1 img, .vidas2 img {
+	height: 100%;
+	float: left;
+	position: relative;
+}
+
+/* ============ CONTEO REGRESIVO DEL JUEGO ============ */
+.conteo {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 99999;
+	display: block;
+}
+
+/* MENSAJE DE CONTEO */
+.msj {
+	width: 100%;
+	height: 200px;
+	position: absolute;
+	top: calc(50% - 100px);
+	font-size: 4em;
+	line-height: 200px;
+	text-align: center;
+	color: #f1ac39;
+	opacity: 1;
+	transition: .3s all;
+	text-shadow: 0px 3px 0px rgba(0, 0, 0, .5);
+	float: left;
+}
+
+/* NÚMEROS DE CONTEO */
+.no1, .no2, .no3 {
+	width: 100%;
+	height: 200px;
+	position: absolute;
+	top: calc(50% - 100px);
+	text-align: center;
+	line-height: 200px;
+	opacity: 0;
+	transition: .3s all;
+	float: left;
+}
+
+.no1 img, .no2 img, .no3 img {
+	height: 100%;
+}
+
+/* ============ PANTALLA DE GANADOR ============ */
+.ganador {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 9999999999;
+	display: none;
+}
+
+/* CONTENEDOR DEL PERSONAJE GANADOR */
+.personajeGanador {
+	text-align: center;
+	height: 100%;
+}
+
+.personajeGanador img {
+	height: 80%;
+	margin-top: -80px;
+	animation: bounceFromTop 1s infinite;
+}
+
+/* TEXTO DEL GANADOR */
+.ganador h1 {
+	font-size: 4em;
+	color: #f1ac39;
+	text-shadow: 0px 3px 0px rgba(0, 0, 0, .5);
+}
+
+/* BOTÓN PARA REINICIAR EL JUEGO */
+.restart {
+	width: 400px;
+	height: 60px;
+	border-radius: 8px;
+	border: none;
+	font-size: 40px;
+	background: #f1ac39;
+	color: #864916;
+	position: absolute;
+	bottom: 30px;
+	left: calc(50% - 200px);
+	text-shadow: 0px -1px 0px rgba(0, 0, 0, .7);
+	box-shadow: 0px 10px 0px 4px #864916, 0px 10px 50px 50px rgba(0, 0, 0, .5);
+	transition: .1s all;
+	outline: none;
+}
+
+.restart:active {
+	box-shadow: 0px 4px 0px 4px #864916, 0px 10px 50px 50px rgba(0, 0, 0, .5);
+	bottom: 24px;
+}
+
+/* ANIMACIÓN DE SALTO DEL GANADOR */
+@keyframes bounceFromTop {
+	0%, 25%, 55%, 85%, 100% {
+		animation-timing-function: ease-out;
+		transform: translate3d(0, 0, 0);
+	}
+	41%, 44% {
+		animation-timing-function: ease-in;
+		transform: translate3d(0, -20px, 0) scale3d(1, 1.1, 1);
+	}
+	70% {
+		animation-timing-function: ease-in;
+		transform: translate3d(0, -20px, 0);
+	}
+	90% {
+		transform: translate3d(0, -4px, 0);
+	}
+}
